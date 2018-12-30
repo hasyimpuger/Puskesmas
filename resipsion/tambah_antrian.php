@@ -4,7 +4,6 @@ if(isset($_GET['id'])) {
 	$query1 = mysqli_query($con, "SELECT * FROM pasien WHERE id_pasien='$id'");
 	$data1 = mysqli_fetch_array($query1);
 }
-
 $query = mysqli_query($con, "SELECT COUNT(no_antrian) AS antrian FROM pendaftaran");
 $data = mysqli_fetch_array($query);
 ?>

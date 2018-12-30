@@ -53,7 +53,7 @@ if(!empty($_SESSION['nama']) AND !empty($_SESSION['username']) AND !empty($_SESS
 		</div>
 		<div class="divider"></div>
 		<ul class="nav menu">
-			<li><a href="?page=beranda"><em class="fa fa-dashboard">&nbsp;</em> Beranda</a></li>
+			
 			<li><a href="?page=antrian"><em class="fa fa-calendar">&nbsp;</em> Antrian Pasien</a></li>
 			<li><a href="?page=obat"><em class="fa fa-calendar">&nbsp;</em> Data Obat</a></li>
 			<li><a href="logout.php"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
@@ -73,9 +73,7 @@ if(!empty($_SESSION['nama']) AND !empty($_SESSION['username']) AND !empty($_SESS
 		<?php 
         if(isset($_GET['page'])) {
             $page = $_GET['page'];
-            if($page == "beranda") {
-                include 'beranda.php';
-            } elseif($page == "antrian") {
+            if($page == "antrian") {
                 include 'antrian.php';
             } elseif($page == "obatpasien") {
                 include 'obat_pasien.php';
@@ -95,7 +93,7 @@ if(!empty($_SESSION['nama']) AND !empty($_SESSION['username']) AND !empty($_SESS
             	include 'hapus_obat.php';
             }
         } else {
-            include 'beranda.php';
+            include 'antrian.php';
         }
         ?>
 		

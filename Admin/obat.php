@@ -3,9 +3,7 @@
 		<h3>Data Obat</h3>
 	</div>
 	<div class="panel-body">
-		<br>
-		<a href="?page=tambah_obat" class="btn btn-sm btn-primary">Tambah Data Obat</a>
-		<br>
+		
 		<br>
 		<table class="table table-bordered table-responsive" id="myTable">
 			<thead>
@@ -15,7 +13,6 @@
 					<th>Expired</th>
 					<th>Stok</th>
 					<th>Satuan</th>
-					<td>Aksi</td>
 				</tr>
 			</thead>
 			<tbody>
@@ -30,8 +27,7 @@
 					<td><?php echo $data['expired'] ?></td>
 					<td><?php echo $data['stok'] ?></td>
 					<td><?php echo $data['satuan'] ?></td>
-					<td><a href="?page=edit_obat&id=<?php echo $data['id_obat'] ?>" class="btn btn-sm btn-warning">Edit</a>
-					<a href="?page=hapus_obat&id=<?php echo $data['id_obat'] ?>" class="btn btn-sm btn-danger">Hapus</a></td>
+					
 				</tr>
 					<?php
 					$no++;

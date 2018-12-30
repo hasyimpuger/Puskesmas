@@ -21,7 +21,7 @@
                 <label for="">Jabatan</label>
                 <select name="jabatan" class="form-control">
                     <option value="Resipsionis">Resipsionis</option>
-                    <option value="Dokter">Dokter</option>
+                    
                     <option value="Apoteker">Apoteker</option>
                 </select>
             </div>

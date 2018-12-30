@@ -15,6 +15,7 @@
 		<?php
 		$query = mysqli_query($con, "SELECT * FROM pendaftaran");
 		while($data = mysqli_fetch_array($query)) {
+			if($data['status'] == "Proses") {
 		?>
 		<tr>
 			<td><?php echo $data['no_antrian'] ?></td>
@@ -27,10 +28,11 @@
 				?>
 			</td>
 			<td>
-				<a href="?page=riwayatpasien&id=<?php echo $data['id_pasien']; ?>" class="btn btn-sm btn-info">Riwayat Penyakit</a>
+				<a href="?page=riwayatpasien&id=<?php echo $data['id_pasien']; ?>&no_antrian=<?php echo $data['no_antrian'] ?>" class="btn btn-sm btn-info">Riwayat Penyakit</a>
 			</td>
 		</tr>
 		<?php
+			}
 		}
 		?>
 			</tbody>

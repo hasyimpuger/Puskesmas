@@ -30,7 +30,7 @@ if(isset($_GET['id'])) {
                 <select name="jabatan" class="form-control">
                     <option value="<?php echo $data['level'] ?>"><?php echo $data['level'] ?></option>
                     <option value="Resipsionis">Resipsionis</option>
-                    <option value="Dokter">Dokter</option>
+                    
                     <option value="Apoteker">Apoteker</option>
                 </select>
             </div>

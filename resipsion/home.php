@@ -6,7 +6,6 @@ if(!empty($_SESSION['nama']) AND !empty($_SESSION['username']) AND !empty($_SESS
 	$level = $_SESSION['level'];
 	
 ?>
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -87,6 +86,8 @@ if(!empty($_SESSION['nama']) AND !empty($_SESSION['username']) AND !empty($_SESS
 				include 'edit_pasienproses.php';
 			} elseif($page == "hapus_pasien") {
 				include 'hapus_pasien.php';
+			} elseif($page == "cetak1") {
+				include 'cetak1.php';
 			}
 
 			elseif($page == "antrian") {

@@ -53,9 +53,9 @@ if(!empty($_SESSION['nama']) AND !empty($_SESSION['username']) AND !empty($_SESS
 		</div>
 		<div class="divider"></div>
 		<ul class="nav menu">
-			<li><a href="?page=beranda"><em class="fa fa-dashboard">&nbsp;</em> Beranda</a></li>
 			<li><a href="?page=pasien"><em class="fa fa-ambulance ">&nbsp;</em> Pasien</a></li>
 			<li><a href="?page=data_kepegawaian"><em class="fa fa-address-card ">&nbsp;</em> Data Kepegawaian</a></li>
+			<li><a href="?page=obat"><em class="fa fa-address-card ">&nbsp;</em> Obat</a></li>
 			<li><a href="?page=kunjungan"><em class="fa fa-calendar ">&nbsp;</em> Kunjungan</a></li>
 			<li><a href="?page=dokter"><em class="fa fa-address-book">&nbsp;</em> Dokter</a></li>
 			<li><a href="logout.php"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
@@ -74,11 +74,7 @@ if(!empty($_SESSION['nama']) AND !empty($_SESSION['username']) AND !empty($_SESS
 		<?php 
         if(isset($_GET['page'])) {
             $page = $_GET['page'];
-            if($page == "beranda") {
-                include 'beranda.php';
-			} 
-			
-			elseif($page == "pasien") {
+            if($page == "pasien") {
                 include 'pasien.php';
             }elseif($page == "tambah_pasien") {
                 include 'tambah_pasien.php';
@@ -111,6 +107,9 @@ if(!empty($_SESSION['nama']) AND !empty($_SESSION['username']) AND !empty($_SESS
 			elseif ($page == "kunjungan") {
             	include 'kunjungan.php';
 			}
+			elseif ($page == "obat") {
+            	include 'obat.php';
+			}
 			
 			elseif ($page == "dokter") {
             	include 'dokter.php';
@@ -120,9 +119,15 @@ if(!empty($_SESSION['nama']) AND !empty($_SESSION['username']) AND !empty($_SESS
             	include 'edit_dokter.php';
             } elseif($page == "tambah_dokterproses") {
             	include 'tambah_dokterproses.php';
+            } elseif($page == "hapus_dokter") {
+            	include 'hapus_dokter.php';
+            }
+			
+			elseif($page == "cetak1") {
+            	include 'cetak1.php';
             }
         } else {
-            include 'beranda.php';
+            include 'pasien.php';
         }
         ?>
 		
@@ -148,7 +153,6 @@ if(!empty($_SESSION['nama']) AND !empty($_SESSION['username']) AND !empty($_SESS
 	scaleFontColor: "#c5c7cc"
 	});
 };
-
 $(document).ready( function () {
     $('#myTable').DataTable();
 } );

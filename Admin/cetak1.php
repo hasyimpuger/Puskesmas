@@ -1,13 +1,16 @@
 
-<div class="panel panel-primary">
-	<div class="panel-heading">
-		<h3>Laporan Kunjungan</h3>
-	</div>
-	<div class="panel-body">
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Kartu Antrian</title>
+</head>
+<body>
+	<center>
+		<h2>RIWAYAT KUNJUNGA</h2>
 		
-		<br>
-		<br>
-		<table class="table table-responsive table-bordered" id="myTable">
+	</center>
+ 
+	<table class="table table-responsive table-bordered" id="">
 			<thead>
 			
 				<tr>
@@ -21,7 +24,7 @@
 			</thead>
 			<tbody>
 				<?php 
-				$query = mysqli_query($con, "SELECT * FROM diagnosis, pasien where diagnosis.id_pasien=pasien.id_pasien  ");
+				$query = mysqli_query($con, "SELECT * FROM diagnosis, pasien where diagnosis.id_pasien=pasien.id_pasien");
 				while($data = mysqli_fetch_array($query))
 				
 				
@@ -41,10 +44,10 @@
 				?>
 				
 			</tbody>
-		</table>
-		<a href="?page=cetak1" class="btn btn-sm btn-warning">Print</a>
-	</div>
-</div>
-
-
-
+		</table>	
+	<script>
+		window.print();
+	</script>
+	
+</body>
+</html>

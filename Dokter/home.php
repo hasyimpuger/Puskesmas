@@ -20,6 +20,7 @@ if(!empty($_SESSION['nama']) AND !empty($_SESSION['username']) AND !empty($_SESS
 		<!--Custom Font-->
 		<link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.18/datatables.min.css"/>
+		<link rel="stylesheet" href="../assets/chosen/bootstrap-chosen.css">
 	<!--[if lt IE 9]>
 	<script src="js/html5shiv.js"></script>
 	<script src="js/respond.min.js"></script>
@@ -53,8 +54,9 @@ if(!empty($_SESSION['nama']) AND !empty($_SESSION['username']) AND !empty($_SESS
 			</div>
 			<div class="divider"></div>
 			<ul class="nav menu">
-				<li><a href="?page=beranda"><em class="fa fa-dashboard">&nbsp;</em> Beranda</a></li>
+				<li><a href="?page=beranda"><em class="fa fa-home">&nbsp;</em> Beranda</a></li>
 				<li><a href="?page=antrian"><em class="fa fa-calendar">&nbsp;</em> Antrian Pasien</a></li>
+				<li><a href="?page=pasien"><em class="fa fa-user">&nbsp;</em> Pasien yang Ditangani</a></li>
 				<li><a href="logout.php"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
 			</ul>
 		</div><!--/.sidebar-->
@@ -81,6 +83,13 @@ if(!empty($_SESSION['nama']) AND !empty($_SESSION['username']) AND !empty($_SESS
 					include 'tambah_diagnosis.php';
 				} elseif ($page == "tambah_diagnosis_proses") {
 					include 'tambah_diagnosis_proses.php';
+				} elseif($page == "addobat") {
+					include 'addobat.php';
+				} elseif($page == 'detail_obat') {
+					include 'detail_obat.php';
+				}
+				elseif ($page == "cetak1") {
+					include 'cetak1.php';
 				}
 			} else {
 				include 'beranda.php';
@@ -101,6 +110,7 @@ if(!empty($_SESSION['nama']) AND !empty($_SESSION['username']) AND !empty($_SESS
 	<script src="../assets/js/bootstrap-datepicker.js"></script>
 	<script src="../assets/js/custom.js"></script>
 	<script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.18/datatables.min.js"></script>
+	<script src="../assets/chosen/chosen.jquery.min.js"></script>
 	<script>
 		window.onload = function () {
 			var chart1 = document.getElementById("line-chart").getContext("2d");
@@ -114,6 +124,8 @@ if(!empty($_SESSION['nama']) AND !empty($_SESSION['username']) AND !empty($_SESS
 		$(document).ready( function () {
 			$('#myTable').DataTable();
 		} );
+
+		$(".chosen-select").chosen();
 	</script>
 	
 </body>
