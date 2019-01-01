@@ -121,6 +121,8 @@ if(!empty($_SESSION['nama']) AND !empty($_SESSION['username']) AND !empty($_SESS
             	include 'tambah_dokterproses.php';
             } elseif($page == "hapus_dokter") {
             	include 'hapus_dokter.php';
+            } elseif($page='detail_pasien') {
+            	include 'detail_pasien.php';
             }
 			
 			elseif($page == "cetak1") {

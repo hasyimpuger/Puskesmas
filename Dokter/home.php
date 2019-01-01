@@ -54,7 +54,7 @@ if(!empty($_SESSION['nama']) AND !empty($_SESSION['username']) AND !empty($_SESS
 			</div>
 			<div class="divider"></div>
 			<ul class="nav menu">
-				<li><a href="?page=beranda"><em class="fa fa-home">&nbsp;</em> Beranda</a></li>
+				<!-- <li><a href="?page=beranda"><em class="fa fa-home">&nbsp;</em> Beranda</a></li> -->
 				<li><a href="?page=antrian"><em class="fa fa-calendar">&nbsp;</em> Antrian Pasien</a></li>
 				<li><a href="?page=pasien"><em class="fa fa-user">&nbsp;</em> Pasien yang Ditangani</a></li>
 				<li><a href="logout.php"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
@@ -73,9 +73,7 @@ if(!empty($_SESSION['nama']) AND !empty($_SESSION['username']) AND !empty($_SESS
 			<?php 
 			if(isset($_GET['page'])) {
 				$page = $_GET['page'];
-				if($page == "beranda") {
-					include 'beranda.php';
-				} elseif($page == "antrian") {
+				if($page == "antrian") {
 					include 'antrian.php';
 				} elseif($page == "riwayatpasien") {
 					include 'riwayat_pasien.php';
@@ -87,12 +85,16 @@ if(!empty($_SESSION['nama']) AND !empty($_SESSION['username']) AND !empty($_SESS
 					include 'addobat.php';
 				} elseif($page == 'detail_obat') {
 					include 'detail_obat.php';
+				} elseif($page == 'pasien') {
+					include 'pasien.php';
+				} elseif($page == 'hapusobat') {
+					include 'hapusobat.php';
+				} elseif($page == 'detail_pasien') {
+					include 'detail_pasien.php';
 				}
-				elseif ($page == "cetak1") {
-					include 'cetak1.php';
-				}
+				
 			} else {
-				include 'beranda.php';
+				include 'antrian.php';
 			}
 			?>
 			

@@ -20,19 +20,19 @@
 			</thead>
 			<tbody>
 				<?php 
-				$query = mysqli_query($con, "SELECT * FROM data_obat");
+				$query = mysqli_query($con, "SELECT * FROM obat");
 				$no=1;
 				while($data = mysqli_fetch_array($query)) {
 					?>
 					<tr>
-					<td><?php echo $no; ?></td>
-					<td><?php echo $data['nama_obat'] ?></td>
-					<td><?php echo $data['expired'] ?></td>
-					<td><?php echo $data['stok'] ?></td>
-					<td><?php echo $data['satuan'] ?></td>
-					<td><a href="?page=edit_obat&id=<?php echo $data['id_obat'] ?>" class="btn btn-sm btn-warning">Edit</a>
-					<a href="?page=hapus_obat&id=<?php echo $data['id_obat'] ?>" class="btn btn-sm btn-danger">Hapus</a></td>
-				</tr>
+						<td><?php echo $no; ?></td>
+						<td><?php echo $data['nama_obat'] ?></td>
+						<td><?php echo $data['expired'] ?></td>
+						<td><?php echo $data['stok_obat'] ?></td>
+						<td><?php echo $data['satuan'] ?></td>
+						<td><a href="?page=edit_obat&id=<?php echo $data['id_obat'] ?>" class="btn btn-sm btn-warning">Edit</a>
+						<a href="?page=hapus_obat&id=<?php echo $data['id_obat'] ?>" class="btn btn-sm btn-danger">Hapus</a></td>
+					</tr>
 					<?php
 					$no++;
 				}

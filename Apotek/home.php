@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 include '../koneksi.php';
 session_start();
 if(!empty($_SESSION['nama']) AND !empty($_SESSION['username']) AND !empty($_SESSION['password']) AND !empty($_SESSION['level'])){
@@ -24,6 +25,7 @@ if(!empty($_SESSION['nama']) AND !empty($_SESSION['username']) AND !empty($_SESS
 	<![endif]-->
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.18/datatables.min.css"/>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+	<link rel="stylesheet" href="../assets/chosen/bootstrap-chosen.css">
 </head>
 <body>
 	<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
@@ -55,7 +57,9 @@ if(!empty($_SESSION['nama']) AND !empty($_SESSION['username']) AND !empty($_SESS
 		<ul class="nav menu">
 			
 			<li><a href="?page=antrian"><em class="fa fa-calendar">&nbsp;</em> Antrian Pasien</a></li>
-			<li><a href="?page=obat"><em class="fa fa-calendar">&nbsp;</em> Data Obat</a></li>
+			<li><a href="?page=obat"><em class="fa fa-file">&nbsp;</em> Data Obat</a></li>
+			<li><a href="?page=obat_masuk"><em class="fa fa-file">&nbsp;</em> Data Obat Masuk</a></li>
+			<li><a href="?page=rekapitulasi"><em class="fa fa-file">&nbsp;</em> Laporan</a></li>
 			<li><a href="logout.php"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
 			<!-- <li><a href="?page=antrian"><em class="fa fa-calendar">&nbsp;</em> Laporan</a></li> -->
 		</ul>
@@ -91,6 +95,14 @@ if(!empty($_SESSION['nama']) AND !empty($_SESSION['username']) AND !empty($_SESS
             	include 'edit_obatproses.php';
             } elseif($page == "hapus_obat") {
             	include 'hapus_obat.php';
+            } elseif($page == 'selesai') {
+            	include 'selesai.php';
+            } elseif($page == 'rekapitulasi') {
+            	include 'rekapitulasi.php';
+            } elseif($page == 'obat_masuk') {
+            	include 'obat_masuk.php';
+            } elseif($page == 'obat_masukproses') {
+            	include 'obat_masukproses.php';
             }
         } else {
             include 'antrian.php';
@@ -112,22 +124,25 @@ if(!empty($_SESSION['nama']) AND !empty($_SESSION['username']) AND !empty($_SESS
 	<script src="../assets/js/custom.js"></script>
 	<script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.18/datatables.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+	<script src="../assets/chosen/chosen.jquery.min.js"></script>
 	<script>
 		window.onload = function () {
-	var chart1 = document.getElementById("line-chart").getContext("2d");
-	window.myLine = new Chart(chart1).Line(lineChartData, {
-	responsive: true,
-	scaleLineColor: "rgba(0,0,0,.2)",
-	scaleGridLineColor: "rgba(0,0,0,.05)",
-	scaleFontColor: "#c5c7cc"
-	});
-};
-$(document).ready( function () {
-    $('#myTable').DataTable();
-} );
-flatpickr("#date", {
-	dateFormat: "Y-m-d"
-});
+			var chart1 = document.getElementById("line-chart").getContext("2d");
+			window.myLine = new Chart(chart1).Line(lineChartData, {
+			responsive: true,
+			scaleLineColor: "rgba(0,0,0,.2)",
+			scaleGridLineColor: "rgba(0,0,0,.05)",
+			scaleFontColor: "#c5c7cc"
+			});
+		};
+		$(document).ready( function () {
+		    $('#myTable').DataTable();
+		});
+		flatpickr("#date", {
+			dateFormat: "Y-m-d"
+		});
+
+		$(".chosen-select").chosen();
 	</script>
 		
 </body>

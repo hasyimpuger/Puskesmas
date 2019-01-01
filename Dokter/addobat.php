@@ -57,6 +57,7 @@ if(isset($_GET['no_antrian'])) {
 						<option value="">--Pilih Jenis---</option>
 						<option value="Tablet">Tablet</option>
 						<option value="Pil">Pil</option>
+						<option value="Kapsul">Kapsul</option>
 						<option value="Puyer">Puyer</option>
 					</select>
 				</div>
@@ -87,14 +88,8 @@ if(isset($_POST['addobat'])) {
 	$jumlah = $_POST['jumlah'];
 	$ket = $_POST['keterangan'];
 
-	$query5 = mysqli_query($con, "SELECT * FROM obat WHERE = '$obat'");
-	$data2 = mysqli_fetch_array($query5);
-	if($data2["stok_obat"] == 0) {
-		echo "<script>alert('Stok Obat Habis')</script>";
-	} else {
-		mysqli_query($con, "INSERT INTO resep SET no_antrian = '$no_antrian', nama_obat = '$obat', jenis_obat = '$jenis', jumlah = '$jumlah', keterangan = '$ket'");
-		echo "<meta http-equiv = 'refresh' content = '1;url=?page=addobat&id=".$id."&no_antrian=".$no_antrian."'>";
-	}
+	mysqli_query($con, "INSERT INTO resep SET no_antrian = '$no_antrian', nama_obat = '$obat', jenis_obat = '$jenis', jumlah = '$jumlah', keterangan = '$ket'");
+	echo "<meta http-equiv = 'refresh' content = '1;url=?page=addobat&id=".$id."&no_antrian=".$no_antrian."'>";
 }
 ?>
 		<br>
@@ -119,7 +114,7 @@ if(isset($_POST['addobat'])) {
 						<td><?php echo $row1['jumlah'] ?></td>
 						<td><?php echo $row1['keterangan'] ?></td>
 						<td>
-							<a href="" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
+							<a href="?page=hapusobat&idresep=<?php echo $row1['id_resep'] ?>&id=<?php echo $data['id_pasien']; ?>&no_antrian=<?php echo $no_antrian ?>&jumlah=<?php echo $row1['jumlah'] ?>&nama_obat=<?php echo $row1['nama_obat'] ?>" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
 						</td>
 					</tr>
 					<?php

@@ -57,6 +57,7 @@ if(!empty($_SESSION['nama']) AND !empty($_SESSION['username']) AND !empty($_SESS
 			<li><a href="?page=beranda"><em class="fa fa-dashboard">&nbsp;</em> Beranda</a></li>
 			<li><a href="?page=antrian"><em class="fa fa-calendar">&nbsp;</em> Antrian</a></li>
 			<li><a href="?page=pasien"><em class="fa fa-calendar">&nbsp;</em> Data Pasien</a></li>
+			<li><a href="?page=kunjungan"><em class="fa fa-calendar">&nbsp;</em> Data Kunjungan</a></li>
 			<li><a href="logout.php"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
 			<!-- <li><a href="?page=antrian"><em class="fa fa-calendar">&nbsp;</em> Laporan</a></li> -->
 		</ul>
@@ -104,6 +105,8 @@ if(!empty($_SESSION['nama']) AND !empty($_SESSION['username']) AND !empty($_SESS
 				include 'edit_antrianproses.php';
 			} elseif($page == "hapus_antrian") {
 				include 'hapus_antrian.php';
+			} elseif ($page == "kunjungan") {
+				include 'kunjungan.php';	
 			}
 		} else {
 			include 'beranda.php';

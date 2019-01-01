@@ -1,7 +1,6 @@
-
-<div class="panel panel-primary">
+<div class="panel panel-default">
 	<div class="panel-heading">
-		<h3>Laporan Kunjungan</h3>
+		<h3>Data Kunjungan Pasien</h3>
 	</div>
 	<div class="panel-body">
 		<form method="POST" class="form-horizontal">
@@ -22,47 +21,33 @@
 		if(isset($_POST['cari'])) {
 			$mulai = $_POST['mulai'];
 			$akhir = $_POST['akhir'];
-
+			
 			$query = mysqli_query($con, "SELECT * FROM diagnosis, pasien WHERE (diagnosis.tanggal BETWEEN '$mulai' AND '$akhir')");
 			?>
-			<button type="button" class="btn btn-md btn-primary" onclick="window.open('cetak.php?mulai=<?php echo $mulai; ?>&akhir=<?php echo $akhir ?>','mywindow','width=700, height=500')"><i class="fa fa-print fa-fw"></i> Cetak</button>
-			<br>
-			<br>
-			<table class="table table-responsive table-bordered" id="myTable">
+			<table class="table table-bordered">
 				<thead>
 					<tr>
-						<th>No</th>
 						<th>No Antrian</th>
 						<th>Nama Pasien</th>
 						<th>Jenis Kelamin</th>
 						<th>Dokter Menangani</th>
-						<th>Aksi</th>
 					</tr>
 				</thead>
 				<tbody>
 					<?php
-					$no=1;
-					while($row = mysqli_fetch_array($query)) {
+					while($data = mysqli_fetch_array($query)) {
 						?>
 						<tr>
-							<td><?php echo $no ?></td>
-							<td><?php echo $row['no_antrian'] ?></td>
-							<td><?php echo $row['nama'] ?></td>
-							<td><?php echo $row['jenis_kelamin'] ?></td>
-							<td><?php echo $row['dokter'] ?></td>
-							<td>
-								<a href="?page=detail_pasien&no_antrian=<?php echo $row['no_antrian'] ?>" class="btn btn-sm btn-primary">Detail</a>
-							</td>
+							<td><?php echo $data['no_antrian'] ?></td>
+							<td><?php echo $data['nama'] ?></td>
+							<td><?php echo $data['jenis_kelamin'] ?></td>
+							<td><?php echo $data['dokter'] ?></td>
 						</tr>
-						<?php
-						$no++;
-					}
-					?>
+					<?php } ?>
 				</tbody>
 			</table>
-		<?php } ?>
+			<?php
+		}
+		?>
 	</div>
 </div>
-
-
-

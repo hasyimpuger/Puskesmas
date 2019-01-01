@@ -1,7 +1,6 @@
 <?php
 if(isset($_GET['no_antrian'])) {
 	$no_antrian = $_GET['no_antrian'];
-	$id_pendaftaran = $_GET['id_pendaftaran'];
 
 	$query = mysqli_query($con, "SELECT * FROM diagnosis, pasien WHERE pasien.id_pasien=diagnosis.id_pasien AND diagnosis.no_antrian='$no_antrian'");
 	$data = mysqli_fetch_array($query);
@@ -11,41 +10,42 @@ if(isset($_GET['no_antrian'])) {
 ?>
 <div class="panel panel-default">
 	<div class="panel-heading">
-		<h2>Obat Pasien <?php echo $data['nama']; ?></h3>
+		<h3>Detail Pasien</h3>
 	</div>
 	<div class="panel-body">
 		<form class="form-horizontal">
 			<div class="form-group">
-				<label class="col-md-2">Nama</label>
+				<label for="" class="col-md-2">Nama Pasien</label>
 				<div class="col-md-5">
-					<input type="text" value="<?php echo $data['nama']; ?>" readonly class="form-control">
+					<input type="text" class="form-control input-sm" readonly="" value="<?php echo $data['nama'] ?>">
 				</div>
 			</div>
-
 			<div class="form-group">
-				<label class="col-md-2">Jenis Kelamin</label>
+				<label for="" class="col-md-2">Jenis Kelamin</label>
 				<div class="col-md-5">
-					<input type="text" value="<?php echo $data['jenis_kelamin']; ?>" readonly class="form-control">
+					<input type="text" class="form-control input-sm" readonly="" value="<?php echo $data['jenis_kelamin'] ?>">
 				</div>
 			</div>
-			
 			<div class="form-group">
-				<label class="col-md-2">Dokter yang Menangani</label>
+				<label for="" class="col-md-2">Keluhan</label>
 				<div class="col-md-5">
-					<input type="text" value="<?php echo $data['dokter']; ?>" readonly class="form-control">
+					<textarea name="" id="" cols="10" rows="5" readonly="" class="form-control input-sm"><?php echo $data['diagnosa'] ?></textarea>
 				</div>
 			</div>
-
 			<div class="form-group">
-				<label class="col-md-2">Tanggal</label>
+				<label for="" class="col-md-2">Dokter Menangani</label>
 				<div class="col-md-5">
-					<input type="text" value="<?php echo date("d-m-Y"); ?>" readonly class="form-control">
+					<input type="text" class="form-control input-sm" readonly="" value="<?php echo $data['dokter'] ?>">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="" class="col-md-2">Tanggal Periksa</label>
+				<div class="col-md-5">
+					<input type="text" class="form-control input-sm" readonly="" value="<?php echo $data['tanggal'] ?>">
 				</div>
 			</div>
 		</form>
-
-		<br>
-		<br>
+		<hr>
 		<table class="table table-responsive table-bordered">
 			<thead>
 				<tr>
@@ -53,7 +53,6 @@ if(isset($_GET['no_antrian'])) {
 					<th>Jenis Obat</th>
 					<th>Jumlah</th>
 					<th>Keterangan</th>
-					<th>Aksi</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -65,17 +64,9 @@ if(isset($_GET['no_antrian'])) {
 					<td><?php echo $row['jenis_obat'] ?></td>
 					<td><?php echo $row['jumlah'] ?></td>
 					<td><?php echo $row['keterangan'] ?></td>
-					<td>
-						<?php if($row['status'] == "Proses") { ?>
-						<a href="?page=selesai&id=<?php echo $row['id_resep'] ?>&no_antrian=<?php echo $no_antrian ?>&jumlah=<?php echo $row['jumlah'] ?>&nama_obat=<?php echo $row['nama_obat'] ?>" class="btn btn-sm btn-danger">Selesai</a>
-					<?php } else {echo $row['status']; } ?>
-					</td>
 				</tr>
 			<?php } ?>
 			</tbody>
 		</table>
-		<br>
-		<br>
-		<a href="?page=status&id=<?php echo $id_pendaftaran; ?>" class="btn btn-sm btn-primary">Selesai</a>
 	</div>
 </div>

@@ -30,8 +30,8 @@
 				<?php if($data['status'] == "Selesai") {
 					echo "Selesai";
 				 } else { ?>
-				 <a href="?page=obatpasien&id=<?php echo $data['id_pasien']; ?>" class="btn btn-sm btn-info">Obat Pasien</a>
-				<a href="?page=status&id=<?php echo $data['id_pendaftaran']; ?>" class="btn btn-sm btn-success">Selesai</a> 
+				 <a href="?page=obatpasien&no_antrian=<?php echo $data['no_antrian']; ?>&id_pendaftaran=<?php echo $data['id_pendaftaran']; ?>" class="btn btn-sm btn-info">Obat Pasien</a>
+				
 			<?php } ?>
 			</td>
 		</tr>

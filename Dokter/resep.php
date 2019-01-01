@@ -6,7 +6,7 @@ if(isset($_GET['no_antrian'])) {
 	$query = mysqli_query($con, "SELECT * FROM diagnosis, pasien WHERE pasien.id_pasien=diagnosis.id_pasien AND diagnosis.no_antrian='$no_antrian'");
 	$data = mysqli_fetch_array($query);
 
-	$query1 = mysqli_query($con, "SELECT * FROM diagnosis, resep WHERE diagnosis.no_antrian='$no_antrian'");
+	
 }
 ?>
 <div onclick="window.print()">
@@ -48,6 +48,7 @@ if(isset($_GET['no_antrian'])) {
 		</thead>
 		<tbody>
 			<?php
+			$query1 = mysqli_query($con, "SELECT * FROM diagnosis, resep WHERE diagnosis.no_antrian='$no_antrian'");
 			while($row = mysqli_fetch_array($query1)) {
 				?>
 				<tr>

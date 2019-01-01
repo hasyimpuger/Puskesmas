@@ -17,7 +17,7 @@
 			</thead>
 			<tbody>
 				<?php 
-				$query = mysqli_query($con, "SELECT * FROM data_obat");
+				$query = mysqli_query($con, "SELECT * FROM obat");
 				$no=1;
 				while($data = mysqli_fetch_array($query)) {
 					?>
@@ -25,7 +25,7 @@
 					<td><?php echo $no; ?></td>
 					<td><?php echo $data['nama_obat'] ?></td>
 					<td><?php echo $data['expired'] ?></td>
-					<td><?php echo $data['stok'] ?></td>
+					<td><?php echo $data['stok_obat'] ?></td>
 					<td><?php echo $data['satuan'] ?></td>
 					
 				</tr>
